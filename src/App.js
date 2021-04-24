@@ -16,8 +16,7 @@ function App() {
     .then(data => data.json())
     .then(response => {
       setData(response.features)
-        //.features.filter(fire => fire.attributes.irwin_POOState === 'US-CA')
-        
+        //.features.filter(fire => fire.attributes.irwin_POOState === 'US-CA') 
     })
   }, [])
 
