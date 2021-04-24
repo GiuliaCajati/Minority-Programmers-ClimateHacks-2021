@@ -64,11 +64,11 @@ const Map = (props) => {
             <p><b>{fire.poly_IncidentName}</b></p>
             <ul>
             <li>
-              <b>County: </b> {fire.irwin_POOCounty}
+              <b>Location: </b> {fire.irwin_POOCounty}, {fire.irwin_POOState.slice(-2)}
             </li>
             <li>
               <b>Date: </b>
-              {fire.startDate} - {fire.endDate} ({fire.duration} days)
+              {fire.startDate} - {fire.endDate} ({fire.duration} {fire.duration === 1 ? "day" : "days"})
             </li>
             <li>
               <b>Acres Burned: </b> 
