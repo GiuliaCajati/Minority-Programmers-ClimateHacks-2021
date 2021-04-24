@@ -1,9 +1,9 @@
 import React from 'react'
 import Map from '../components/Map.js'
 
-const MapPage = () => {
+const MapPage = (props) => {
     return (
-        <Map/>
+        <Map fireData={props.fireData}/>
     )
 }
 

@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <MapPage />
+      <MapPage fireData = {data} />
     </div>
   );
 }
