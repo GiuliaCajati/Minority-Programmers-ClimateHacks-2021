@@ -14,11 +14,10 @@ const MapPage = (props) => {
     return (
         <div>
             <Map
-                fireData={props.fireData}
+                fireData={ongoingToggle?props.fireData.filter(data => data.endDate === 'present'):props.fireData}
                 acresToggle={acresToggle}
                 durationToggle={durationToggle}
                 causeToggle={causeToggle}
-                ongoingToggle={ongoingToggle}
             />
          
             <Button 

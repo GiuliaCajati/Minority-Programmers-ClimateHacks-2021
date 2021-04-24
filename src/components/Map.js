@@ -1,16 +1,64 @@
 import React from 'react'
 import { Icon } from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
-
-
-//fireData
+import { Switch } from 'react-router';
 
 const Map = (props) => {
+    // const [ iconSize , setIconSize ] = useState([15, 15])
+    // const [ icon, setIcon ] = useState(
+    //   new Icon({
+    //   iconUrl:'https://i.imgur.com/F53W34b.png',
+    //   iconSize: iconSize
+    //   })
+    // )  
 
-    const fireIcon = new Icon({
-      iconUrl:'https://i.imgur.com/F53W34b.png',
-      iconSize: [15, 15]
-    })
+
+    const resizeIcon = (fire) => {
+      if(props.acresToggle) {
+        if(fire.acres <= 10){
+          return 5
+        } else if(fire.acres <= 20){
+          return 10
+        } else if(fire.acres <= 100){
+          return 10
+        } else if(fire.acres <= 500){
+          return 20
+        } else if(fire.acres <= 1000){
+          return 30
+        }else{
+          return 60
+        }
+      } else if (props.durationToggle) {
+        if(fire.duration <= 10){
+          return 5
+        } else if(fire.duration <= 20){
+          return 10
+        } else if(fire.duration <= 30){
+          return 30
+        }else{
+          return 60
+        }
+      } 
+      else {
+        return 20
+      }
+    }
+    const setIcon = (cause) => {
+      if(props.causeToggle) {
+         switch(cause){
+            case 'Human':
+              return 'https://i.imgur.com/mYKYRO2.png'
+            case 'Natural':
+              return 'https://i.imgur.com/04G71Br.png'
+            default:
+              return 'https://i.imgur.com/F53W34b.png'
+         } 
+      }
+      else {
+        return 'https://i.imgur.com/F53W34b.png'
+      }
+    }
+
 
     const determineCause = (fire) => {
       if (fire.irwin_FireCause && !fire.irwin_FireCauseGeneral) {
@@ -49,12 +97,18 @@ const Map = (props) => {
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {props.fireData.map(fire => {
+        {props.fireData.map(fire => {
+          const size = resizeIcon(fire)
+          //const size = resizeIcon(props.acresToggle?fire.acres:fire.duration)
+           const fireIcon = new Icon({
+            iconUrl: setIcon(fire.irwin_FireCause),
+            iconSize: [size, size]
+          })
         if(fire.irwin_InitialLatitude === null || fire.irwin_InitialLongitude === null){
           return null
         }
         return<Marker 
-              icon={fireIcon}
+              icon = {fireIcon}
               key = {fire.OBJECTID} 
               position={ [fire.irwin_InitialLatitude, fire.irwin_InitialLongitude ]}>
           <Popup>
