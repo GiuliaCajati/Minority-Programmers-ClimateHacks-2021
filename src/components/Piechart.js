@@ -10,7 +10,7 @@ const Piechart = (props) => {
     <PieChart width={400} height={400}>
         {props.data ?
         <Pie
-            data={getAverageAcres(props.data)}
+            data={props.data}
             labelLine={true}
             label={renderCustomizedLabel}
             outerRadius={80}
@@ -18,7 +18,7 @@ const Piechart = (props) => {
             dataKey="value"
             nameKey="name"
         >
-            {getAverageAcres(props.data).map((entry, index) => (
+            {props.data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
         </Pie> : null}
