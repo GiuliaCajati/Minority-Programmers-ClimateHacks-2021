@@ -55,18 +55,17 @@ const MapPage = (props) => {
               causeToggle={causeToggle}
               ongoingToggle={ongoingToggle}
           />
-          <Button 
-            style={{marginTop: '50rem'}}
-            color="secondary" 
+
+          <Button className="graph-button"
             variant="contained" 
-            className='toggle-button'
             checked={checked}
             onClick={handleChange}>
                 Graphs!!
           </Button>
+
           <Popover
           anchorReference="anchorPosition"
-          anchorPosition={{ top: 800, left: 1250}}
+          anchorPosition={{ top: 600, left: 1250}}
           id={id}
           open={open}
           anchorEl={anchorEl}
