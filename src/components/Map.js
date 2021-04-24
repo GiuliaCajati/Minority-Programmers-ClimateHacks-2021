@@ -13,10 +13,7 @@ const Map = (props) => {
     })
 
     const determineCause = (fire) => {
-      if (!fire.irwin_FireCause || fire.irwin_FireCause === "Unknown") {
-        return "Undetermined"
-      }
-      else if (fire.irwin_FireCause && !fire.irwin_FireCauseGeneral) {
+      if (fire.irwin_FireCause && !fire.irwin_FireCauseGeneral) {
         return fire.irwin_FireCause
       }
       else if (fire.irwin_FireCause && fire.irwin_FireCauseGeneral && !fire.irwin_FireCauseSpecific) {
