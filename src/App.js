@@ -62,20 +62,9 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        {/* <Switch>
-          <Route exact path="/map" transitionProps={{...hideInsteadOfUnmount}} render={() => 
-            <MapPage fireData={data}/>
-          }/> 
-          {/* <Route exact path='/map' render ={() => <MapPage fireData = {data} />}/> */}
-          {/* <Route exact path='/graphs' render ={() => 
-          }/>  */}
-          {/* <Route exact path="/pie" render={() =>
-            <PieChart fireData={data}/> 
-          } /> */}
-        {/* </Switch> */} 
-        <MapPage fireData = {data} />
-        {/* <GraphContainer data={data}/>  */}
+      <div className="App"> 
+        <MapPage fireData={data} />
+        <GraphContainer data={data}/> 
       </div>
     </Router>
   );

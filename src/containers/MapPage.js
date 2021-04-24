@@ -67,7 +67,7 @@ const MapPage = (props) => {
       >
         {/* <Typography className={classes.typography}>The content of the Popover.</Typography>
          */}
-         <GraphContainer fireData={props.fireData}/> 
+         <GraphContainer/> 
       </Popover>
     </center>
     </div>

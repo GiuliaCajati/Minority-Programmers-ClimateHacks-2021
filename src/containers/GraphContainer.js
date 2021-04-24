@@ -7,6 +7,7 @@ const GraphContainer = (props) => {
         <div id="graph-page">
           {/* <Paper> */}
           testing 
+          {/* {console.log(props.data)} */}
 
             {props.data ? <Piechart data={props.data}/> : null}
           {/* </Paper> */}
