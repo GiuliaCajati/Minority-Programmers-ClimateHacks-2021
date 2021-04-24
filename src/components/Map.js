@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Icon } from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 
@@ -6,6 +6,11 @@ import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 //fireData
 
 const Map = (props) => {
+
+  const [ acresToggle, setAcresToggle ] = useState(false)
+  const [ durationToggle, setDurationToggle ] = useState(false)
+  const [ causeToggle, setCauseToggle ] = useState(false)
+  const [ ongoingToggle, setOngoingToggle ] = useState(false)
 
     const fireIcon = new Icon({
       iconUrl:'https://i.imgur.com/F53W34b.png',
