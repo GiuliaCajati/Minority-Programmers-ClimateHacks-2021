@@ -7,53 +7,108 @@ import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 
 const Map = (props) => {
 
-    const fire = new Icon({
+    const fireIcon = new Icon({
       iconUrl:'https://i.imgur.com/F53W34b.png',
-      iconSize: [25, 25]
+      iconSize: [15, 15]
     })
+
+    const determineCause = (fire) => {
+      if (!fire.irwin_FireCause || fire.irwin_FireCause === "Unknown") {
+        return "Undetermined"
+      }
+      else if (fire.irwin_FireCause && !fire.irwin_FireCauseGeneral) {
+        return fire.irwin_FireCause
+      }
+      else if (fire.irwin_FireCause && fire.irwin_FireCauseGeneral && !fire.irwin_FireCauseSpecific) {
+        switch(fire.irwin_FireCauseGeneral) {
+          case "Other Human Cause":
+            return fire.irwin_FireCause
+          default:
+            return `${fire.irwin_FireCause} (${fire.irwin_FireCauseGeneral})`
+        }
+      }
+      else {
+        if (fire.irwin_FireCauseGeneral === "Other Human Cause") {
+          return `${fire.irwin_FireCause} (${fire.irwin_FireCauseSpecific})`
+        }
+
+        switch(fire.irwin_FireCauseSpecific) {
+          case "Motor Vehicle":
+            return `${fire.irwin_FireCause} (${fire.irwin_FireCauseSpecific})`
+          default:
+            return `${fire.irwin_FireCause} (${fire.irwin_FireCauseGeneral}, ${fire.irwin_FireCauseSpecific})`
+        }
+      }
+    }
+
+    const determineVegetation = (fire) => {
+      if (fire.irwin_PredominantFuelGroup && !fire.irwin_SecondaryFuelModel) {
+        return fire.irwin_PredominantFuelGroup
+      }
+      else {
+        return `${fire.irwin_PredominantFuelGroup}, ${fire.irwin_SecondaryFuelModel}`
+      }
+    }
+
     return (
-        
-    <MapContainer center={[35.91634, -121.4352]} zoom={6} scrollWheelZoom={true}>
+     
+    <MapContainer center={[40, -100]} zoom={5} scrollWheelZoom={true}>
       <TileLayer
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {props.fireData.map(data => {
-        if(data.attributes.irwin_InitialLatitude === null || data.attributes.irwin_InitialLongitude === null){
+      {props.fireData.map(fire => {
+        if(fire.irwin_InitialLatitude === null || fire.irwin_InitialLongitude === null){
           return null
         }
         return<Marker 
-              icon={fire}
-              key = {data.attributes.OBJECTID} 
-              position={ [data.attributes.irwin_InitialLatitude, data.attributes.irwin_InitialLongitude ]}>
+              icon={fireIcon}
+              key = {fire.OBJECTID} 
+              position={ [fire.irwin_InitialLatitude, fire.irwin_InitialLongitude ]}>
           <Popup>
-            <p><b>Name: {data.attributes.poly_IncidentName}</b></p>
+            <p><b>{fire.poly_IncidentName}</b></p>
             <ul>
             <li>
-              <b>County:</b> {data.attributes.irwin_POOCounty}
+              <b>County: </b> {fire.irwin_POOCounty}
             </li>
             <li>
-              <b>Date:</b>
-              {data.attributes.irwin_FireDiscoveryDateTime} - {data.attributes.irwin_FireOutDateTime}
+              <b>Date: </b>
+              {fire.startDate} - {fire.endDate} ({fire.duration} days)
             </li>
             <li>
-              <b>Acres Burned:</b> 
-              {data.attributes.poly_Acres_AutoCalc}
+              <b>Acres Burned: </b> 
+              {fire.acres}
             </li>
             <li>
-              <b>Cause:</b> 
-              {data.attributes.irwin_FireCause}, {data.attributes.irwin_FireCauseGeneral}, {data.attributes.irwin_FireCauseSpecific}
+              <b>Cause: </b> 
+              {determineCause(fire)}
             </li>
-            <li>
-              <b>Vegitation: </b>
-              {data.attributes.irwin_PredominantFuelGroup}, {data.attributes.irwin_SecondaryFuelModel} </li>
-            <li>
-              <b>Fire Fighters: </b>
-              {data.attributes.irwin_TotalIncidentPersonnel}
-            </li>
-            <li>
-              <b>Property:</b> {data.attributes.irwin_POOLandownerKind}
-            </li>
+            {fire.irwin_PredominantFuelGroup
+              ?
+                <li>
+                  <b>Vegetation: </b>
+                  {determineVegetation(fire)}
+                </li>
+              :
+                null
+            }
+            {fire.irwin_TotalIncidentPersonnel
+              ?
+                <li>
+                  <b>Firefighters: </b>
+                  {fire.irwin_TotalIncidentPersonnel}
+                </li>
+              :
+                null
+            }
+            {fire.irwin_POOLandownerKind
+              ?
+                <li>
+                  <b>Property: </b> {fire.irwin_POOLandownerKind}
+                </li>
+              :
+                null
+            }
             </ul>
             
           </Popup>
