@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Piechart from '../components/Piechart'
 
-const GraphContainer = () => {
+const GraphContainer = (props) => {
+
     return (
-        <div>
-            GRAPHS
+        <div id="graph-page">
+            {props.data ? <Piechart data={props.data}/> : null}
         </div>
     )
 }
