@@ -20,10 +20,24 @@ const Map = (props) => {
         return fire.irwin_FireCause
       }
       else if (fire.irwin_FireCause && fire.irwin_FireCauseGeneral && !fire.irwin_FireCauseSpecific) {
-        return `${fire.irwin_FireCause} (${fire.irwin_FireCauseGeneral})`
+        switch(fire.irwin_FireCauseGeneral) {
+          case "Other Human Cause":
+            return fire.irwin_FireCause
+          default:
+            return `${fire.irwin_FireCause} (${fire.irwin_FireCauseGeneral})`
+        }
       }
       else {
-        return `${fire.irwin_FireCause} (${fire.irwin_FireCauseGeneral}, ${fire.irwin_FireCauseSpecific})`
+        if (fire.irwin_FireCauseGeneral === "Other Human Cause") {
+          return `${fire.irwin_FireCause} (${fire.irwin_FireCauseSpecific})`
+        }
+
+        switch(fire.irwin_FireCauseSpecific) {
+          case "Motor Vehicle":
+            return `${fire.irwin_FireCause} (${fire.irwin_FireCauseSpecific})`
+          default:
+            return `${fire.irwin_FireCause} (${fire.irwin_FireCauseGeneral}, ${fire.irwin_FireCauseSpecific})`
+        }
       }
     }
 
@@ -38,7 +52,7 @@ const Map = (props) => {
 
     return (
      
-    <MapContainer center={[37.0902, -95.7129]} zoom={5} scrollWheelZoom={true}>
+    <MapContainer center={[40, -100]} zoom={5} scrollWheelZoom={true}>
       <TileLayer
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -52,7 +66,7 @@ const Map = (props) => {
               key = {fire.OBJECTID} 
               position={ [fire.irwin_InitialLatitude, fire.irwin_InitialLongitude ]}>
           <Popup>
-            <p><b>Fire Name: {fire.poly_IncidentName}</b></p>
+            <p><b>{fire.poly_IncidentName}</b></p>
             <ul>
             <li>
               <b>County: </b> {fire.irwin_POOCounty}
@@ -87,9 +101,14 @@ const Map = (props) => {
               :
                 null
             }
-            <li>
-              <b>Property: </b> {fire.irwin_POOLandownerKind}
-            </li>
+            {fire.irwin_POOLandownerKind
+              ?
+                <li>
+                  <b>Property: </b> {fire.irwin_POOLandownerKind}
+                </li>
+              :
+                null
+            }
             </ul>
             
           </Popup>

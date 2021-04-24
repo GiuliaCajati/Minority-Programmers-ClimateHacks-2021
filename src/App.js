@@ -32,6 +32,12 @@ function App() {
         :
           Math.floor((Date.now() - fire.irwin_FireDiscoveryDateTime) / (60*60*24*1000))
       fire.acres = fire.poly_Acres_AutoCalc.toFixed(2)
+      if (fire.irwin_FireCauseGeneral === "Debris/Open Burning") {
+        fire.irwin_FireCauseGeneral = "Open Burning"
+      }
+      if (fire.irwin_FireCauseSpecific === "Other, Unknown") {
+        fire.irwin_FireCauseSpecific = null
+      }
     })
     setData(caliFires)
   }
