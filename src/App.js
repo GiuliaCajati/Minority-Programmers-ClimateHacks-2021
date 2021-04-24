@@ -14,11 +14,27 @@ function App() {
   useEffect(() => {
     fetch(url)
     .then(data => data.json())
-    .then(response => {
-      setData(response.features)
-        //.features.filter(fire => fire.attributes.irwin_POOState === 'US-CA') 
-    })
+    .then(handleResponse)
   }, [])
+
+  const handleResponse = (response) => {
+    let caliFires = response.features.map(fire => fire.attributes)
+    caliFires.forEach(fire => {
+      fire.startDate = new Date(fire.irwin_FireDiscoveryDateTime).toLocaleDateString("en-US")
+      fire.endDate = fire.irwin_FireOutDateTime
+        ?
+          new Date(fire.irwin_FireOutDateTime).toLocaleDateString("en-US")
+        :
+          "present"
+      fire.duration = fire.irwin_FireOutDateTime
+        ?
+          Math.floor((fire.irwin_FireOutDateTime - fire.irwin_FireDiscoveryDateTime) / (60*60*24*1000))
+        :
+          Math.floor((Date.now() - fire.irwin_FireDiscoveryDateTime) / (60*60*24*1000))
+      fire.acres = fire.poly_Acres_AutoCalc.toFixed(2)
+    })
+    setData(caliFires)
+  }
 
 
   return (
