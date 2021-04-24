@@ -9,7 +9,7 @@ const Map = (props) => {
 
     const fireIcon = new Icon({
       iconUrl:'https://i.imgur.com/F53W34b.png',
-      iconSize: [25, 25]
+      iconSize: [15, 15]
     })
 
     const determineCause = (fire) => {
@@ -37,8 +37,8 @@ const Map = (props) => {
     }
 
     return (
-        
-    <MapContainer center={[35.91634, -121.4352]} zoom={6} scrollWheelZoom={true}>
+     
+    <MapContainer center={[37.0902, -95.7129]} zoom={5} scrollWheelZoom={true}>
       <TileLayer
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -74,7 +74,6 @@ const Map = (props) => {
                 <li>
                   <b>Vegetation: </b>
                   {determineVegetation(fire)}
-                  {/* {fire.irwin_PredominantFuelGroup}, {fire.irwin_SecondaryFuelModel} */}
                 </li>
               :
                 null

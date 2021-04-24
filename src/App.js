@@ -18,7 +18,7 @@ function App() {
   }, [])
 
   const handleResponse = (response) => {
-    let caliFires = response.features.filter(fire => fire.attributes.irwin_POOState === 'US-CA').map(fire => fire.attributes)
+    let caliFires = response.features.map(fire => fire.attributes)
     caliFires.forEach(fire => {
       fire.startDate = new Date(fire.irwin_FireDiscoveryDateTime).toLocaleDateString("en-US")
       fire.endDate = fire.irwin_FireOutDateTime
