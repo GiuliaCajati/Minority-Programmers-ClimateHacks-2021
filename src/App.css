@@ -4,9 +4,25 @@
   height: 100vh;
   z-index: 1;
 }
-.toggle-button {
+.map-element {
   position: absolute !important;
   z-index: 2;
+}
+
+.map-filter-button {
+  /* margin: 5px !important; */
+}
+
+#graph-toggle-button {
   bottom: 20px;
   left: 50%;
+}
+
+#toggle-container {
+  left: 1%;
+  bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20%;
 }

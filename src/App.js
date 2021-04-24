@@ -64,7 +64,7 @@ function App() {
     <Router>
       <div className="App"> 
         <MapPage fireData={data} />
-        <GraphContainer data={data}/> 
+        {/* <GraphContainer data={data}/>  */}
       </div>
     </Router>
   );
