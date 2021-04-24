@@ -1,9 +1,16 @@
 import React from 'react'
+import { Icon } from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
+
 
 //fireData
 
 const Map = (props) => {
+
+    const fire = new Icon({
+      iconUrl:'https://i.imgur.com/F53W34b.png',
+      iconSize: [25, 25]
+    })
     return (
         
     <MapContainer center={[35.91634, -121.4352]} zoom={6} scrollWheelZoom={true}>
@@ -15,14 +22,44 @@ const Map = (props) => {
         if(data.attributes.irwin_InitialLatitude === null || data.attributes.irwin_InitialLongitude === null){
           return null
         }
-        return<Marker position={ [data.attributes.irwin_InitialLatitude, data.attributes.irwin_InitialLongitude ]}>
+        return<Marker 
+              icon={fire}
+              key = {data.attributes.OBJECTID} 
+              position={ [data.attributes.irwin_InitialLatitude, data.attributes.irwin_InitialLongitude ]}>
           <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+            <p><b>Name: {data.attributes.poly_IncidentName}</b></p>
+            <ul>
+            <li>
+              <b>County:</b> {data.attributes.irwin_POOCounty}
+            </li>
+            <li>
+              <b>Date:</b>
+              {data.attributes.irwin_FireDiscoveryDateTime} - {data.attributes.irwin_FireOutDateTime}
+            </li>
+            <li>
+              <b>Acres Burned:</b> 
+              {data.attributes.poly_Acres_AutoCalc}
+            </li>
+            <li>
+              <b>Cause:</b> 
+              {data.attributes.irwin_FireCause}, {data.attributes.irwin_FireCauseGeneral}, {data.attributes.irwin_FireCauseSpecific}
+            </li>
+            <li>
+              <b>Vegitation: </b>
+              {data.attributes.irwin_PredominantFuelGroup}, {data.attributes.irwin_SecondaryFuelModel} </li>
+            <li>
+              <b>Fire Fighters: </b>
+              {data.attributes.irwin_TotalIncidentPersonnel}
+            </li>
+            <li>
+              <b>Property:</b> {data.attributes.irwin_POOLandownerKind}
+            </li>
+            </ul>
+            
           </Popup>
         </Marker>
       })}
-      
-       
+        
     </MapContainer>
         
     )
