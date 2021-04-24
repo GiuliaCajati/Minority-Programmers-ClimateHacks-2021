@@ -13,19 +13,11 @@ const Map = (props) => {
     })
 
     const determineCause = (fire) => {
-      if (!fire.irwin_FireCause || fire.irwin_FireCause === "Unknown") {
-        return "Undetermined"
-      }
-      else if (fire.irwin_FireCause && !fire.irwin_FireCauseGeneral) {
+      if (fire.irwin_FireCause && !fire.irwin_FireCauseGeneral) {
         return fire.irwin_FireCause
       }
       else if (fire.irwin_FireCause && fire.irwin_FireCauseGeneral && !fire.irwin_FireCauseSpecific) {
-        switch(fire.irwin_FireCauseGeneral) {
-          case "Other Human Cause":
-            return fire.irwin_FireCause
-          default:
-            return `${fire.irwin_FireCause} (${fire.irwin_FireCauseGeneral})`
-        }
+        return `${fire.irwin_FireCause} (${fire.irwin_FireCauseGeneral})`
       }
       else {
         if (fire.irwin_FireCauseGeneral === "Other Human Cause") {
@@ -69,11 +61,11 @@ const Map = (props) => {
             <p><b>{fire.poly_IncidentName}</b></p>
             <ul>
             <li>
-              <b>County: </b> {fire.irwin_POOCounty}
+              <b>Location: </b> {fire.irwin_POOCounty}, {fire.irwin_POOState.slice(-2)}
             </li>
             <li>
               <b>Date: </b>
-              {fire.startDate} - {fire.endDate} ({fire.duration} days)
+              {fire.startDate} - {fire.endDate} ({fire.duration} {fire.duration === 1 ? "day" : "days"})
             </li>
             <li>
               <b>Acres Burned: </b> 

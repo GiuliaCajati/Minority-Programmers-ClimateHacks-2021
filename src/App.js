@@ -18,8 +18,8 @@ function App() {
   }, [])
 
   const handleResponse = (response) => {
-    let caliFires = response.features.map(fire => fire.attributes)
-    caliFires.forEach(fire => {
+    let fires = response.features.map(fire => fire.attributes)
+    fires.forEach(fire => {
       fire.startDate = new Date(fire.irwin_FireDiscoveryDateTime).toLocaleDateString("en-US")
       fire.endDate = fire.irwin_FireOutDateTime
         ?
@@ -28,18 +28,24 @@ function App() {
           "present"
       fire.duration = fire.irwin_FireOutDateTime
         ?
-          Math.floor((fire.irwin_FireOutDateTime - fire.irwin_FireDiscoveryDateTime) / (60*60*24*1000))
+          Math.ceil((fire.irwin_FireOutDateTime - fire.irwin_FireDiscoveryDateTime) / (60*60*24*1000))
         :
-          Math.floor((Date.now() - fire.irwin_FireDiscoveryDateTime) / (60*60*24*1000))
+          Math.ceil((Date.now() - fire.irwin_FireDiscoveryDateTime) / (60*60*24*1000))
       fire.acres = fire.poly_Acres_AutoCalc.toFixed(2)
+      if (!fire.irwin_FireCause || fire.irwin_FireCause === "Unknown") {
+        fire.irwin_FireCause = "Undetermined"
+      }
+      if (fire.irwin_FireCauseSpecific === "Other, Unknown" || fire.irwin_FireCauseSpecific === "Other, Known") {
+        fire.irwin_FireCauseSpecific = null
+      }
       if (fire.irwin_FireCauseGeneral === "Debris/Open Burning") {
         fire.irwin_FireCauseGeneral = "Open Burning"
       }
-      if (fire.irwin_FireCauseSpecific === "Other, Unknown") {
-        fire.irwin_FireCauseSpecific = null
+      else if (fire.irwin_FireCauseGeneral === "Other Human Cause" && !fire.irwin_FireCauseSpecific) {
+        fire.irwin_FireCauseGeneral = null
       }
     })
-    setData(caliFires)
+    setData(fires)
   }
 
 
