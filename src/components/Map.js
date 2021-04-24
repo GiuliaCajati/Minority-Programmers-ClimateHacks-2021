@@ -9,7 +9,7 @@ const Map = (props) => {
 
     const fire = new Icon({
       iconUrl:'https://i.imgur.com/F53W34b.png',
-      iconSize: [25, 25]
+      iconSize: [15, 15]
     })
     return (
         

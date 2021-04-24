@@ -15,7 +15,9 @@ function App() {
     fetch(url)
     .then(data => data.json())
     .then(response => {
-      setData(response.features.filter(fire => fire.attributes.irwin_POOState === 'US-CA'))
+      setData(response.features)
+        //.features.filter(fire => fire.attributes.irwin_POOState === 'US-CA')
+        
     })
   }, [])
 
