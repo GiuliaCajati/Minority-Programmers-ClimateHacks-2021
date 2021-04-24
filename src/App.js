@@ -51,7 +51,8 @@ function App() {
           <Route path='/graphs' render = {() => <GraphContainer fireData = {data}/>}/>
           <Redirect to='/map' />
         </Switch> */}
-        <MapPage fireData = {data} />
+        {/* <MapPage fireData = {data} /> */}
+        <GraphContainer data={data}/> 
       </div>
     </Router>
   );
