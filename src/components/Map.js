@@ -20,12 +20,7 @@ const Map = (props) => {
         return fire.irwin_FireCause
       }
       else if (fire.irwin_FireCause && fire.irwin_FireCauseGeneral && !fire.irwin_FireCauseSpecific) {
-        switch(fire.irwin_FireCauseGeneral) {
-          case "Other Human Cause":
-            return fire.irwin_FireCause
-          default:
-            return `${fire.irwin_FireCause} (${fire.irwin_FireCauseGeneral})`
-        }
+        return `${fire.irwin_FireCause} (${fire.irwin_FireCauseGeneral})`
       }
       else {
         if (fire.irwin_FireCauseGeneral === "Other Human Cause") {
