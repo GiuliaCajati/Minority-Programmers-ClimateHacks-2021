@@ -40,7 +40,7 @@ const Map = (props) => {
       if(props.causeToggle) {
          switch(cause){
             case 'Human':
-              return 'https://i.imgur.com/VCogaOX.png'
+              return 'https://i.imgur.com/dH5n5DP.png'
             case 'Natural':
               return 'https://i.imgur.com/TTDwgZj.png'
             default:
