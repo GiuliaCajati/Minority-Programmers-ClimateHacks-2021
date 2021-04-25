@@ -1,5 +1,5 @@
 import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Cell } from "recharts";
 
 const Barchart = ({data, type}) => {
     const COLORS = ["#0088FE", "#FFBB28","#00C49F", "#FF8042", "#225577"];

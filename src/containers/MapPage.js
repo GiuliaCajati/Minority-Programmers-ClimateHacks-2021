@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-
 import ToggleContainer from './ToggleContainer.js'
 import Map from '../components/Map.js'
-
 import About from "../components/About.js";
 import GraphOverlay from "../components/GraphOverlay.js";
 
@@ -17,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     width: '20%', 
   },
   infoBox: {
-    // opacity: 0.8,
     width: "75%",
     height: "75%"
   }

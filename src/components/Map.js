@@ -111,7 +111,6 @@ const Map = (props) => {
       />
         {props.fireData.map(fire => {
           const size = resizeIcon(fire)
-          //const size = resizeIcon(props.acresToggle?fire.acres:fire.duration)
            const fireIcon = new Icon({
             iconUrl: setIcon(fire.irwin_FireCause),
             iconSize: [size, size]
