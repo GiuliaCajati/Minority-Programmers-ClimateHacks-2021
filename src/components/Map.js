@@ -33,16 +33,16 @@ const Map = (props) => {
         }
       } 
       else {
-        return 20
+        return 25
       }
     }
     const setIcon = (cause) => {
       if(props.causeToggle) {
          switch(cause){
             case 'Human':
-              return 'https://i.imgur.com/mYKYRO2.png'
+              return 'https://i.imgur.com/VCogaOX.png'
             case 'Natural':
-              return 'https://i.imgur.com/04G71Br.png'
+              return 'https://i.imgur.com/TTDwgZj.png'
             default:
               return 'https://i.imgur.com/F53W34b.png'
          } 
