@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function App() {
-  const classes = useStyles()
   const [ data, setData ] = useState([])
 
   useEffect(() => {

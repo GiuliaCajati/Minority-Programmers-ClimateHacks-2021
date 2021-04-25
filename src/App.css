@@ -45,9 +45,9 @@
   z-index: 2;
 }
 
-/* .map-filter-button { */
-  /* margin: 5px !important; */
-/* } */
+.map-filter-button { 
+  font-weight: bold !important;
+} 
 
 #graph-toggle-button {
   bottom: 20px;
@@ -61,4 +61,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 20%;
+  background-color: rgba(220,220,220, 0.749);
+  padding: 8px;
+  border-radius: 10px;
 }
