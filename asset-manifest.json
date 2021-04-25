@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Minority-Programmers-ClimateHacks-2021/static/css/main.061feb03.chunk.css",
+    "main.css": "/Minority-Programmers-ClimateHacks-2021/static/css/main.694f59bd.chunk.css",
     "main.js": "/Minority-Programmers-ClimateHacks-2021/static/js/main.adfdffb3.chunk.js",
     "main.js.map": "/Minority-Programmers-ClimateHacks-2021/static/js/main.adfdffb3.chunk.js.map",
     "runtime-main.js": "/Minority-Programmers-ClimateHacks-2021/static/js/runtime-main.82fa21b5.js",
@@ -8,14 +8,14 @@
     "static/js/2.262840b3.chunk.js": "/Minority-Programmers-ClimateHacks-2021/static/js/2.262840b3.chunk.js",
     "static/js/2.262840b3.chunk.js.map": "/Minority-Programmers-ClimateHacks-2021/static/js/2.262840b3.chunk.js.map",
     "index.html": "/Minority-Programmers-ClimateHacks-2021/index.html",
-    "static/css/main.061feb03.chunk.css.map": "/Minority-Programmers-ClimateHacks-2021/static/css/main.061feb03.chunk.css.map",
+    "static/css/main.694f59bd.chunk.css.map": "/Minority-Programmers-ClimateHacks-2021/static/css/main.694f59bd.chunk.css.map",
     "static/js/2.262840b3.chunk.js.LICENSE.txt": "/Minority-Programmers-ClimateHacks-2021/static/js/2.262840b3.chunk.js.LICENSE.txt",
     "static/media/forestfire.5e8871d5.png": "/Minority-Programmers-ClimateHacks-2021/static/media/forestfire.5e8871d5.png"
   },
   "entrypoints": [
     "static/js/runtime-main.82fa21b5.js",
     "static/js/2.262840b3.chunk.js",
-    "static/css/main.061feb03.chunk.css",
+    "static/css/main.694f59bd.chunk.css",
     "static/js/main.adfdffb3.chunk.js"
   ]
 }
