@@ -8,11 +8,11 @@ const Map = (props) => {
       if(props.acresToggle) {
         switch(true){
           case fire.acres <= 2:
-            return 5
-          case fire.acres <= 20:
             return 10
-          case fire.acres <= 100:
+          case fire.acres <= 20:
             return 15
+          case fire.acres <= 100:
+            return 20
           case fire.acres <= 1000:
             return 30
           case fire.acres <= 10000:
@@ -25,11 +25,11 @@ const Map = (props) => {
       } else if (props.durationToggle) {
         switch(true){
           case fire.duration <= 5:
-            return 5
-          case fire.duration <= 15:
             return 10
-          case fire.duration <= 30:
+          case fire.duration <= 15:
             return 15
+          case fire.duration <= 30:
+            return 20
           case fire.duration <= 50:
             return 30
           case fire.duration <= 100:
@@ -90,10 +90,21 @@ const Map = (props) => {
         return `${fire.irwin_PredominantFuelGroup}, ${fire.irwin_SecondaryFuelModel}`
       }
     }
+    const outerBounds = [
+      [20, -130],
+      [60, -70],
+    ]
+ 
 
     return (
      
-    <MapContainer center={[40, -100]} zoom={5} scrollWheelZoom={true}>
+    <MapContainer 
+      maxBounds={outerBounds}
+      center={[40, -100]} 
+      zoom={5} 
+      scrollWheelZoom={true} 
+      maxZoom={10} 
+      minZoom={4}>
       <TileLayer
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
