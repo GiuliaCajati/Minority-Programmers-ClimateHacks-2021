@@ -48,13 +48,12 @@ const MapPage = (props) => {
     return (
 
       <div>
-          <Map
-              fireData={props.fireData}
-              acresToggle={acresToggle}
-              durationToggle={durationToggle}
-              causeToggle={causeToggle}
-              ongoingToggle={ongoingToggle}
-          />
+            <Map
+                fireData={ongoingToggle?props.fireData.filter(data => data.endDate === 'present'):props.fireData}
+                acresToggle={acresToggle}
+                durationToggle={durationToggle}
+                causeToggle={causeToggle}
+            />
 
           <Button className="graph-button"
             variant="contained" 
@@ -84,16 +83,16 @@ const MapPage = (props) => {
           <GraphContainer data={props.fireData}/> 
         </Popover>
 
-          <ToggleContainer
-              acresToggle={acresToggle}
-              durationToggle={durationToggle}
-              causeToggle={causeToggle}
-              ongoingToggle={ongoingToggle}
-              setAcresToggle={setAcresToggle}
-              setDurationToggle={setDurationToggle}
-              setCauseToggle={setCauseToggle}
-              setOngoingToggle={setOngoingToggle}
-          />  
+        <ToggleContainer
+            acresToggle={acresToggle}
+            durationToggle={durationToggle}
+            causeToggle={causeToggle}
+            ongoingToggle={ongoingToggle}
+            setAcresToggle={setAcresToggle}
+            setDurationToggle={setDurationToggle}
+            setCauseToggle={setCauseToggle}
+            setOngoingToggle={setOngoingToggle}
+        />
       </div>
     );
 }
