@@ -1,12 +1,26 @@
+.site-info {
+  position: absolute !important; 
+  z-index: 4;
+  text-align: center;
+  top: 50%;
+  left: 50%; 
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 100px;
+  margin: 5px;  
 
+}
 .graph-button {
   position: absolute !important; 
   z-index: 3;
   bottom: 5%;
   left: 50%;
   right: 50%;
-
 }
+
+/* .pop-up-css{
+  
+} */
 
 .leaflet-container {
   width: 100%;
@@ -18,9 +32,9 @@
   z-index: 2;
 }
 
-.map-filter-button {
+/* .map-filter-button { */
   /* margin: 5px !important; */
-}
+/* } */
 
 #graph-toggle-button {
   bottom: 20px;
