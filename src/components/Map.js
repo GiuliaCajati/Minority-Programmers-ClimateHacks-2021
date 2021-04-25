@@ -104,9 +104,9 @@ const Map = (props) => {
               icon = {fireIcon}
               key = {fire.OBJECTID} 
               position={ [fire.irwin_InitialLatitude, fire.irwin_InitialLongitude ]}>
-          <Popup>
-            <p><b>{fire.poly_IncidentName}</b></p>
-            <ul>
+          <Popup className="pop-up-css">
+            <p style={{fontSize: '16px', textAlign: 'center', color: '#7f0000'}}><b>{fire.poly_IncidentName}</b></p>
+            <ul style={{fontSize: '14px'}}>
             <li>
               <b>Location: </b> {fire.irwin_POOCounty}, {fire.irwin_POOState.slice(-2)}
             </li>
