@@ -6,30 +6,38 @@ const Map = (props) => {
 
     const resizeIcon = (fire) => {
       if(props.acresToggle) {
-        if(fire.acres <= 20){
-          return 5
-        } else if(fire.acres <= 100) {
-          return 10
-        } else if(fire.acres <= 600) {
-          return 15
-        } else if(fire.acres <= 1000) {
-          return 25
-        } else if(fire.acres <= 2000) {
-          return 40
-        }else{
-          return 55
+        switch(true){
+          case fire.acres <= 2:
+            return 5
+          case fire.acres <= 20:
+            return 10
+          case fire.acres <= 100:
+            return 15
+          case fire.acres <= 1000:
+            return 30
+          case fire.acres <= 10000:
+            return 45
+          case fire.acres <= 50000:
+            return 60
+          default:
+            return 120
         }
       } else if (props.durationToggle) {
-        if(fire.duration <= 5){
-          return 5
-        } else if(fire.duration <= 10) {
-          return 10
-        } else if(fire.duration <= 50) {
-          return 20
-        } else if(fire.duration <= 100) {
-          return 30
-        }else{
-          return 55
+        switch(true){
+          case fire.duration <= 5:
+            return 5
+          case fire.duration <= 15:
+            return 10
+          case fire.duration <= 30:
+            return 15
+          case fire.duration <= 50:
+            return 30
+          case fire.duration <= 100:
+            return 45
+          case fire.duration <= 365:
+            return 60
+          default:
+            return 80
         }
       } 
       else {
