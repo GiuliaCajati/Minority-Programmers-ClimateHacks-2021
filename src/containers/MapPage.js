@@ -10,11 +10,11 @@ import GraphOverlay from "../components/GraphOverlay.js";
 
 const useStyles = makeStyles((theme) => ({
   typography: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
   },
   logo: {
-    height: '50%', 
-    width: '50%', 
+    height: '20%', 
+    width: '20%', 
   },
   infoBox: {
     // opacity: 0.8,
