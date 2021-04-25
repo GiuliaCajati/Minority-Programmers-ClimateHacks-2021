@@ -84,6 +84,8 @@ const MapPage = (props) => {
 
             <center>
               <img src={Logo} className={classes.logo}/> 
+              <p style={{fontFamily: 'Roboto', fontSize: '25px'}}>
+
               <p> Hey hottie! Welcome to What's Lit! Here is where you can find out <b>what's lit</b> (literally).</p> 
               {/* <br/>  */}
               <p>Here is where you'll be able to check out all of the fires that have happened in the United States between the years 2020-2021. There have been over <b>16000 fires</b> and over <b>444000 acres</b> and they just continue to grow more and more each year! The public plays a valuable role in preventing wildfires. The national average of human-caused wildfires comprises 87 percent of all wildfire occurrences every year. Most of these fires can be prevented. Preventable wildfires threaten lives, property, and our precious natural resources. Whether it is properly extinguishing a campfire or keeping your vehicle maintained to prevent sparks, following just a few simple steps can help prevent wildfires. Learn how to properly use outdoor equipment; burn debris safely; start, maintain, and extinguish a campfire; maintain a vehicle and tow safely; and practice fire-safe target shooting to name a few.
@@ -98,6 +100,7 @@ const MapPage = (props) => {
               <a href="https://www.readyforwildfire.org/prevent-wildfire/one-less-spark-campaign/" target="One Less Spark">One Less Spark, One Less Wildfire</a>
               <br /> 
               <a href="https://smokeybear.com/en" target="Smokey the Bear">Only You Can Prevent Wildfires</a>
+              </p>
             </center>
           </div>
             {/* </Paper> */}
