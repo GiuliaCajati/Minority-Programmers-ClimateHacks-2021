@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { PieChart, Pie, Cell } from "recharts";
-import { getAverageAcres, getTotalFires, renderCustomizedLabel} from '../helpers/piedata'
+import { renderCustomizedLabel} from '../helpers/piedata'
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
