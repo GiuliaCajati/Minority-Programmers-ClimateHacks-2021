@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const ToggleContainer = (props) => {
 
@@ -30,34 +31,42 @@ const ToggleContainer = (props) => {
 
     return (
         <div className="map-element" id="toggle-container">
-            <Button 
-                onClick={() => handleClick("acres")}
-                color="secondary" 
-                variant={props.acresToggle ? "contained" : "outlined"}
-                className='map-filter-button'>
-                    Acres
-            </Button>
-            <Button 
-                onClick={() => handleClick("duration")}
-                color="secondary" 
-                variant={props.durationToggle ? "contained" : "outlined"} 
-                className='map-filter-button'>
-                    Duration
-            </Button>
-            <Button 
-                onClick={() => handleClick("cause")}
-                color="secondary" 
-                variant={props.causeToggle ? "contained" : "outlined"}
-                className='map-filter-button'>
-                    Cause
-            </Button>
-            <Button 
-                onClick={() => handleClick("ongoing")}
-                color="secondary" 
-                variant={props.ongoingToggle ? "contained" : "outlined"} 
-                className='map-filter-button'>
-                    Ongoing
-            </Button>
+            <Tooltip title="Size of fire varies depending on number of acres fire damaged." >
+                <Button 
+                    onClick={() => handleClick("acres")}
+                    color="secondary" 
+                    variant={props.acresToggle ? "contained" : "outlined"}
+                    className='map-filter-button'>
+                        Acres
+                </Button>
+            </Tooltip>
+            <Tooltip title="Size of fire varies depending on number of days fire lasted." >
+                <Button 
+                    onClick={() => handleClick("duration")}
+                    color="secondary" 
+                    variant={props.durationToggle ? "contained" : "outlined"} 
+                    className='map-filter-button'>
+                        Duration
+                </Button>
+            </Tooltip>
+            <Tooltip title="Naturaly Caused: displayed with lightning, Human Caused: displayed with people" >
+                <Button 
+                    onClick={() => handleClick("cause")}
+                    color="secondary" 
+                    variant={props.causeToggle ? "contained" : "outlined"}
+                    className='map-filter-button'>
+                        Cause
+                </Button>
+            </Tooltip>
+            <Tooltip title="Ongoing fires as of 4/18/2021." >
+                <Button 
+                    onClick={() => handleClick("ongoing")}
+                    color="secondary" 
+                    variant={props.ongoingToggle ? "contained" : "outlined"} 
+                    className='map-filter-button'>
+                        Ongoing
+                </Button>
+            </Tooltip>
         </div>
     )
 }
