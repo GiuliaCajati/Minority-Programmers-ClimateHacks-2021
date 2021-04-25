@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Minority-Programmers-ClimateHacks-2021/static/css/main.694f59bd.chunk.css",
-    "main.js": "/Minority-Programmers-ClimateHacks-2021/static/js/main.adfdffb3.chunk.js",
-    "main.js.map": "/Minority-Programmers-ClimateHacks-2021/static/js/main.adfdffb3.chunk.js.map",
+    "main.js": "/Minority-Programmers-ClimateHacks-2021/static/js/main.d0b95b06.chunk.js",
+    "main.js.map": "/Minority-Programmers-ClimateHacks-2021/static/js/main.d0b95b06.chunk.js.map",
     "runtime-main.js": "/Minority-Programmers-ClimateHacks-2021/static/js/runtime-main.82fa21b5.js",
     "runtime-main.js.map": "/Minority-Programmers-ClimateHacks-2021/static/js/runtime-main.82fa21b5.js.map",
     "static/js/2.262840b3.chunk.js": "/Minority-Programmers-ClimateHacks-2021/static/js/2.262840b3.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.82fa21b5.js",
     "static/js/2.262840b3.chunk.js",
     "static/css/main.694f59bd.chunk.css",
-    "static/js/main.adfdffb3.chunk.js"
+    "static/js/main.d0b95b06.chunk.js"
   ]
 }
