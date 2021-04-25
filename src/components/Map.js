@@ -1,42 +1,35 @@
 import React from 'react'
 import { Icon } from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
-import { Switch } from 'react-router';
 
 const Map = (props) => {
-    // const [ iconSize , setIconSize ] = useState([15, 15])
-    // const [ icon, setIcon ] = useState(
-    //   new Icon({
-    //   iconUrl:'https://i.imgur.com/F53W34b.png',
-    //   iconSize: iconSize
-    //   })
-    // )  
-
 
     const resizeIcon = (fire) => {
       if(props.acresToggle) {
-        if(fire.acres <= 10){
+        if(fire.acres <= 20){
           return 5
-        } else if(fire.acres <= 20){
+        } else if(fire.acres <= 100) {
           return 10
-        } else if(fire.acres <= 100){
+        } else if(fire.acres <= 600) {
           return 15
-        } else if(fire.acres <= 500){
-          return 20
-        } else if(fire.acres <= 1000){
-          return 30
+        } else if(fire.acres <= 1000) {
+          return 25
+        } else if(fire.acres <= 2000) {
+          return 40
         }else{
-          return 60
+          return 55
         }
       } else if (props.durationToggle) {
-        if(fire.duration <= 10){
+        if(fire.duration <= 5){
           return 5
-        } else if(fire.duration <= 20){
+        } else if(fire.duration <= 10) {
           return 10
-        } else if(fire.duration <= 30){
+        } else if(fire.duration <= 50) {
+          return 20
+        } else if(fire.duration <= 100) {
           return 30
         }else{
-          return 60
+          return 55
         }
       } 
       else {
