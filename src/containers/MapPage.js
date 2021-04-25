@@ -62,8 +62,9 @@ const MapPage = (props) => {
 
             <About openToggle={openToggle} classes={classes} toggleInfo={toggleInfo} setToggleInfoClose={setToggleInfoClose}/>
 
-          <Button className="graph-button"
+          <Button className="graph-button map-filter-button"
             variant="contained" 
+            color="secondary"
             checked={checked}
             onClick={handleChange}>
                 Check out the graphs!
