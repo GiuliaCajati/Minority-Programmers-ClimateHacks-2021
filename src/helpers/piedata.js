@@ -48,7 +48,7 @@ export const getTotalFires = (data) => {
 
 export const  renderCustomizedLabel = ({x, y, name, value}) => {
     return (
-      <text x={x} y={y} fill="black" textAnchor="start" dominantBaseline="central">
+      <text x={x} y={y} fontSize="12px" fill="black" textAnchor="middle" dominantBaseline="central">
         {name}: {value.toFixed(2)}
       </text>
     );

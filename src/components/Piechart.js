@@ -7,7 +7,7 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 const Piechart = (props) => {
 
   return (
-    <PieChart width={400} height={400}>
+    <PieChart width={300} height={300}>
         {props.data ?
         <Pie
             data={props.data}
@@ -17,6 +17,7 @@ const Piechart = (props) => {
             fill="#8884d8"
             dataKey="value"
             nameKey="name"
+            className="pie"
         >
             {props.data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
