@@ -58,7 +58,7 @@ const ToggleContainer = (props) => {
                         Cause
                 </Button>
             </Tooltip>
-            <Tooltip title="Ongoing fires as of 4/18/2021." >
+            <Tooltip title="Currently ongoing fires." >
                 <Button 
                     onClick={() => handleClick("ongoing")}
                     color="secondary" 
