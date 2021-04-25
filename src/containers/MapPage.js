@@ -17,12 +17,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   logo: {
-    height: '55%', 
-    width: '55%', 
+    height: '50%', 
+    width: '50%', 
   },
-  // infoBox: {
-  //   opacity: 0.8
-  // }
+  infoBox: {
+    // opacity: 0.8,
+    width: "75%",
+    height: "75%"
+  }
 }));
 
 const MapPage = (props) => {
@@ -80,11 +82,11 @@ const MapPage = (props) => {
             }}
             >
             {/* <Paper className="site-info">  */}
-            <div style={{width: '100rem', padding: '40px'}}>
+            <div style={{width: '90%', padding: '40px'}}>
 
             <center>
               <img src={Logo} className={classes.logo}/> 
-              <p style={{fontFamily: 'Roboto', fontSize: '25px'}}>
+              <p style={{fontFamily: 'Roboto', fontSize: '15px'}}>
 
               <p> Hey hottie! Welcome to What's Lit! Here is where you can find out <b>what's lit</b> (literally).</p> 
               {/* <br/>  */}

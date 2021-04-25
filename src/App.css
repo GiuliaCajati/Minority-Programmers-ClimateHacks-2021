@@ -18,6 +18,19 @@
   right: 50%;
 }
 
+.graph-paper {
+  margin: 2%;
+  height: 95%;
+  width: 95%;
+}
+
+.graph-title {
+  text-align: center;
+}
+
+.pie {
+  margin-left: 0%;
+}
 /* .pop-up-css{
   
 } */
