@@ -40,6 +40,12 @@ function App() {
         :
           Math.ceil((Date.now() - fire.irwin_FireDiscoveryDateTime) / (60*60*24*1000))
       fire.acres = fire.poly_Acres_AutoCalc.toFixed(2)
+      if(fire.irwin_PredominantFuelGroup === "Grass-Shrub"){
+        fire.irwin_PredominantFuelGroup = "Shrub"
+      }
+      if(fire.irwin_SecondaryFuelModel === "Grass-Shrub"){
+        fire.irwin_SecondaryFuelModel = "Shrub"
+      }
       if (!fire.irwin_FireCause || fire.irwin_FireCause === "Unknown") {
         fire.irwin_FireCause = "Undetermined"
       }

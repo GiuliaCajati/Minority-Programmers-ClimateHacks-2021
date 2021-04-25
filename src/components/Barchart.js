@@ -1,15 +1,14 @@
 import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-  
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell } from "recharts";
 
 const Barchart = ({data, type}) => {
-    console.log(data)
+    const COLORS = ["#0088FE", "#FFBB28","#00C49F", "#FF8042", "#225577"];
+
     return (
         <BarChart
             width={350}
             height={250}
             data={data}
-            // barSize={}
             interval={0}
             margin={{
                 top: 50,
@@ -19,11 +18,14 @@ const Barchart = ({data, type}) => {
             }}
             >
             <CartesianGrid strokeDasharray={"3 3"} />
-            <XAxis dataKey="PrimaryFuel" tickSize="3" interval={0} tick={{fontSize: "8px"}}/>
+            <XAxis dataKey="PrimaryFuel" tickSize="10" interval={0} tick={{fontSize: "10px"}}/>
             <YAxis />
             <Tooltip />
-            <Legend />
-            <Bar dataKey={type} barSize={20} fill="#8884d8" />
+            <Bar dataKey={type} barSize={20}>
+                {data.map((category, index) => {
+                    return <Cell key={`cell-${index}`} fill={COLORS[index]}/>
+                })}
+            </Bar>
         </BarChart>
     )
 }

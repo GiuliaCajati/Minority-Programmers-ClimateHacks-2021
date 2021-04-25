@@ -2,7 +2,7 @@ import React from 'react'
 import { PieChart, Pie, Cell } from "recharts";
 import { renderCustomizedLabel} from '../helpers/piedata'
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const COLORS = ["#0088FE", "#FFBB28","#00C49F", "#FF8042", "#225577"];
 
 const Piechart = (props) => {
 
