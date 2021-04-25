@@ -20,7 +20,7 @@ const Map = (props) => {
         } else if(fire.acres <= 20){
           return 10
         } else if(fire.acres <= 100){
-          return 10
+          return 15
         } else if(fire.acres <= 500){
           return 20
         } else if(fire.acres <= 1000){
