@@ -19,12 +19,11 @@ const About = ({openToggle, classes, toggleInfo, setToggleInfoClose }) => {
               horizontal: "center"
             }}
             >
-            {/* <Paper className="site-info">  */}
-            <div style={{width: '90%', padding: '40px'}}>
+            <div className={classes.infoDiv}>
 
             <center>
               <img src={Logo} className={classes.logo}/> 
-              <p style={{fontFamily: 'Roboto', fontSize: '14px'}}>
+              <p className={classes.infoText}>
               <p>Here is where you'll be able to check out all of the&nbsp;
               <a href='https://data-nifc.opendata.arcgis.com/datasets/68637d248eb24d0d853342cba02d4af7_0?geometry=115.099%2C10.788%2C8.224%2C58.424' target='_blank'>
               <b>NIFC fire data</b>

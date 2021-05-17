@@ -11,12 +11,20 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
   logo: {
+    minHeight: '100px',
+    minWidth: '100px',
     height: '20%', 
     width: '20%', 
   },
   infoBox: {
     width: "75%",
     height: "75%"
+  },
+  infoText:{
+    fontFamily: "Roboto",
+  },
+  infoDiv:{
+    padding: "5%"
   }
 }));
 
@@ -52,7 +60,7 @@ const MapPage = (props) => {
 
     return (
 
-      <div>
+      <div className="map-page">
           <Map
             fireData={ongoingToggle?props.fireData.filter(data => data.endDate === 'present'):props.fireData}
             acresToggle={acresToggle}
@@ -70,7 +78,13 @@ const MapPage = (props) => {
                 Check out the graphs!
           </Button>
 
-            <GraphOverlay id={id} open={open} anchorEl={anchorEl} handleClose={handleClose} fireData={props.fireData}/>
+            <GraphOverlay 
+            className="graph-page"
+            id={id} 
+            open={open} 
+            anchorEl={anchorEl} 
+            handleClose={handleClose} 
+            fireData={props.fireData}/>
         <ToggleContainer
             acresToggle={acresToggle}
             durationToggle={durationToggle}

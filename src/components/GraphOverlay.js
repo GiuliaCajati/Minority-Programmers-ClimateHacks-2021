@@ -6,7 +6,8 @@ const GraphOverlay = ({id, open, anchorEl, handleClose, fireData}) => {
     return (
         <Popover
           anchorReference="anchorPosition"
-          anchorPosition={{ top: 600, left: 1250}}
+          anchorPosition={{ top: 600, left: 5}}
+          className="popover-container"
           id={id}
           open={open}
           anchorEl={anchorEl}
@@ -20,8 +21,6 @@ const GraphOverlay = ({id, open, anchorEl, handleClose, fireData}) => {
             horizontal: 'center',
           }}
         >
-          {/* <Typography className={classes.typography}>The content of the Popover.</Typography>
-          */}
           <GraphContainer data={fireData}/> 
         </Popover>
     )

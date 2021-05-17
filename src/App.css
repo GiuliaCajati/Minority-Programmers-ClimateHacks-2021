@@ -1,44 +1,31 @@
-.site-info {
-  position: absolute !important; 
-  z-index: 4;
-  text-align: center;
-  top: 50%;
-  left: 50%; 
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  padding: 100px;
-  margin: 5px;  
-
-}
-.graph-button {
-  position: absolute !important; 
-  font-weight: bold !important;
-  /* opacity: 75% !important; */
-  z-index: 3;
-  bottom: 5%;
-  left: 40%;
-  right: 50%;
-}
-
-.graph-paper {
-  margin: 2%;
-  height: 95%;
-  width: 95%;
-}
-
-.graph-title {
-  text-align: center;
-}
-
-.pie {
-  margin-left: 0%;
-}
 
 .leaflet-container {
   width: 100%;
   height: 100vh;
   z-index: 1;
 }
+
+.graph-button {
+  position: absolute !important; 
+  font-weight: bold !important;
+  z-index: 3;
+  bottom: 5%;
+  left: 40%;
+  right: 50%;
+}
+.popover-container{
+  width: 100%;
+}
+
+.graph-container{
+  width: 101%;
+  margin: 4px 
+}
+
+.graph-title {
+  text-align: center;
+}
+
 .map-element {
   position: absolute !important;
   z-index: 2;
@@ -47,13 +34,6 @@
 .map-filter-button { 
   font-weight: bold !important;
 } 
-
-#graph-toggle-button {
-  
-  /* bottom: 20px; */
-  /* left: 50%; */
-
-}
 
 #toggle-container {
   left: 1%;
@@ -66,3 +46,4 @@
   padding: 8px;
   border-radius: 10px;
 }
+
